@@ -10,13 +10,13 @@ const corsOption ={
   methods: ["GET" , "POST" , "PUT" , "PATCH" , "DELETE"]
 }
 app.use(cors(corsOption)) // for cross server data sharing , here we share front end to back end data also vice versa
-
+app.use(express.json()) // all incoming and outgoing response in JSON format 
 
 mongoose.connect(process.env.DB_URL)
         .then(()=>console.log("database connected"))
         .catch((err)=>console.log(err));
 
-app.use(express.json()) // all incoming and outgoing response in JSON format 
+ 
 
 
 app.use("/api/v1/todo" , router)

@@ -3,7 +3,7 @@ import todoModel from "../models/todo.model.js"
 const getTodoList = async (req, res) => {
   try {
     const todoList = await todoModel.find()
-    console.log(todoList);
+    // console.log(todoList);
     res.status(200).json({
       success: true,
       message: "Fetch Todo List Successfully",
@@ -20,7 +20,7 @@ const getTodoList = async (req, res) => {
 }
 
 const createTodo = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     await todoModel.create(req.body);
     res.json({

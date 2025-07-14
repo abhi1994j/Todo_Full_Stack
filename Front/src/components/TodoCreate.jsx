@@ -2,7 +2,8 @@ import { useState } from "react";
 import instance from "../axios.config";
 
 const TodoCreate = (props) => {
-  const { todo, setTodo } = props;
+  
+  const { todo, setTodo , setTodoList } = props;
   const [flag, setFlag] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -13,7 +14,8 @@ const TodoCreate = (props) => {
 
   async function postTodo(data) {
     try {
-      await instance.post("/api/v1/todo/create", data);
+      const res = await instance.post("/api/v1/todo/create", data);
+       setTodoList((prev) => [...prev, res.data]);
       console.log("todo is submitted successfully");
     } catch (err) {
       console.log(err.message);

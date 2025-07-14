@@ -17,7 +17,7 @@ const TodoUI = () => {
  }, [])
  
  async function getTodoList() {
-  const res = await instance.get("/api/v1/todo/get");
+  const res =await instance.get("/api/v1/todo/get");
   console.log(res.data);
   setTodoList(res.data.result)
  }

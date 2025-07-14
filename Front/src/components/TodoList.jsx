@@ -8,6 +8,7 @@ const TodoList = (props) => {
     const findID = todoList.find((ele)=> ele._id === id);
     console.log(findID._id);
     await instance.delete(`/api/v1/todo/delete` , findID._id)
+    // return todoList.filter((ele)=> ele._id !== findID._id)
   }
   return (
     <>

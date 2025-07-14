@@ -37,8 +37,9 @@ const createTodo = async (req, res) => {
   }
 }
 
-const deleteTodo = (req, res) => {
-  
+const deleteTodo = async(req, res) => {
+  console.log(req.body._id);
+  // await todoModel.findByIdAndDelete(req.body._id)
   res.json({
     success: true,
     message: "delete a todo Successfully"

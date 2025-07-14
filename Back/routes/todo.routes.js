@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.get("/get" , getTodoList);
 router.post("/create" , createTodo);
-router.delete("/:id" , deleteTodo);
+router.delete("/delete" , deleteTodo);
 
 export default router;

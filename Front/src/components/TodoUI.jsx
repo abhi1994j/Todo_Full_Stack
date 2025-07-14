@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TodoCreate from "./TodoCreate";
 import TodoList from "./TodoList";
-import { nanoid } from 'nanoid'
+import instance from "../axios.config";
+
 const TodoUI = () => {
   const taskObj = {
-    id :nanoid(),
-    task: '',
-    completed : false
+    todo: '',
+    // completed : false
   }
-  const [todo , setTodo] = useState(taskObj);
 
+  const [todo , setTodo] = useState(taskObj);
+  const [todoList , setTodoList] = useState([]);
+
+ useEffect(() => {
+   getTodoList();
+ }, [])
+ 
+ async function getTodoList() {
+  const res = await instance.get("/api/v1/todo/get");
+  console.log(res.data);
+  setTodoList(res.data.result)
+ }
   // console.log(nanoid());
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
@@ -20,7 +31,7 @@ const TodoUI = () => {
         <TodoCreate todo={todo} setTodo={setTodo} />
 
         {/* Task List */}
-        <TodoList todo={todo}/>
+        <TodoList todoList={todoList}/>
       </div>
 
     </div>

@@ -2,11 +2,11 @@ import express from "express";
 import cors from "cors";
 import router from "./routes/todo.routes.js";
 import mongoose from "mongoose";
-
+import dotenv from "dotenv"
 const app = express();
 
 // Or, enable CORS with specific options for production:
-
+dotenv.config();
 const corsOption = {
   origin: process.env.FRONT_URL,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],

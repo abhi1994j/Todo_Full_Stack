@@ -17,7 +17,7 @@ const TodoList = (props) => {
     <>
       <ul className="space-y-3">
         {todoList.map((ele) => {
-          // console.log(ele.todo);
+          console.log(ele.todo);
           return (
             <li
               key={ele._id}

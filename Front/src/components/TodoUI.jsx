@@ -12,9 +12,9 @@ const TodoUI = () => {
   const [todo , setTodo] = useState(taskObj);
   const [todoList , setTodoList] = useState([]);
 
-// useEffect(() => {
- //  getTodoList();
- //}, [])
+useEffect(() => {
+  getTodoList();
+ }, [])
  
  async function getTodoList() {
   const res =await instance.get("/api/v1/todo/get");
@@ -33,7 +33,7 @@ const TodoUI = () => {
         {/* Task List */}
         <TodoList todoList={todoList} setTodoList={setTodoList}/>
       </div>
-      <button onClick={()=> getTodoList()}>click</button>
+      {/* <button onClick={()=> getTodoList()}>click</button> */}
 
     </div>
   );

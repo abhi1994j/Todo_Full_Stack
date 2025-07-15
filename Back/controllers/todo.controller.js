@@ -89,7 +89,7 @@ const updateTodoList = async (req, res) => {
 }
 
 const deleteTodo = async (req, res) => {
-  console.log(req.body.id);
+  console.log(req.params.id);
   const deletedTask = await todoModel.findByIdAndDelete(req.params.id)
   res.json({
     success: true,

@@ -7,14 +7,17 @@ const app = express();
 
 // Or, enable CORS with specific options for production:
 dotenv.config();
+
 const corsOption = {
   origin: process.env.FRONT_URL,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }
 app.use(cors(corsOption)) // for cross server data sharing , here we share front end to back end data also vice versa
+
 app.use(express.json()) // all incoming and outgoing response in JSON format 
-console.log(process.env.FRONT_URL);
+// console.log(process.env.FRONT_URL);
+
 mongoose.connect(process.env.DB_URL)
   .then(() => console.log("database connected"))
   .catch((err) => console.log(err));

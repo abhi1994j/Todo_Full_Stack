@@ -13,9 +13,11 @@ const TodoCreate = (props) => {
   }
 
   async function postTodo(data) {
+    console.log(data);
     try {
       const res = await instance.post("/api/v1/todo/", data);
-       setTodoList((prev) => [...prev, res.data]);
+      console.log(res);
+       setTodoList((prev) => [...prev, res.data.result]);
       console.log("todo is submitted successfully");
     } catch (err) {
       console.log(err.message);

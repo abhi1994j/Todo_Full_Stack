@@ -5,9 +5,7 @@ const TodoList = (props) => {
 
   async function handleDelete(id) {
      try {
-      await instance.delete("/api/v1/todo/delete", {
-        data: { id: id }
-      });
+      await instance.delete(`/api/v1/todo/${id}`);
       setTodoList((prev) => prev.filter((ele) => ele._id !== id));
     } catch (err) {
       console.error(err.message);

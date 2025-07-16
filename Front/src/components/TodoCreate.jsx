@@ -29,6 +29,7 @@ const TodoCreate = (props) => {
     if (!todo.todo.trim()) {
       setFlag(true);
     } else {
+      setFlag(false)
       postTodo(todo);
       setIsSubmit(true);
       setTimeout(() => {
